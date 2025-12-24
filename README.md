@@ -39,7 +39,9 @@ README.md
 ### 建立SA並綁定 GCP 服務帳戶（Workload Identity） 
 參考文件:
 [1]https://docs.cloud.google.com/stackdriver/docs/managed-prometheus/query?hl=zh-tw
+
 [2]https://grafana.com/docs/grafana/latest/setup-grafana/installation/kubernetes/
+
 1. gcloud CLI 設定叢集
 
 ```text
