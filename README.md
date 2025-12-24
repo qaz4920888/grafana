@@ -154,7 +154,7 @@ Service 設定重點：
 
 Ingress 功能包含：
 
-- 對外暴露 Grafana 網址
+- 對外暴露 Grafana 網址 訪問LB要帶 /login
 - 綁定 GCP Managed Certificate（如有設定）
 - 使用 GKE 原生 L7 Load Balancer
 
