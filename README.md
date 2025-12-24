@@ -28,7 +28,46 @@ README.md
 ```
 
 ---
+## 前置條件（Prerequisites） ⭐⭐⭐ 
+1.開始前記得一定要先將GKE Workload Identity 打開 (打開後node一定要upgrade 刪掉重建不行 )
+2.出現403 優先檢查 Workload Identity 以及Sa是否正確綁定置grafana pod 
 
+### 建立並綁定 GCP 服務帳戶（Workload Identity）
+1. gcloud CLI 設定叢集
+
+```text
+
+gcloud container clusters get-credentials CLUSTER_NAME --location LOCATION --project benlab-392406
+```
+
+2. 建立GCP服務帳戶。 gmp-sa
+
+3.GCP sa 連結到 ns  Kubernetes 服務帳戶，將必要權限授予 Google Cloud 服務帳戶。
+
+```text
+1.gcloud config set project xxxxx 
+
+2.gcloud iam service-accounts create gmp-sa
+```
+
+4.使用下列指令，將 gmp-sa 連接至 ns 命名空間中的 Kubernetes 服務帳戶：
+
+```text
+1.gcloud config set project xxxlabid
+
+2. gcloud iam service-accounts add-iam-policy-binding   --role roles/iam.workloadIdentityUser   --condition=None   --member "serviceAccount:xxxlab-id.svc.id.goog[default/default]"  gmp-sa@xxxlabid.iam.gserviceaccount.com 
+ #解說 [default/default] 左邊ns name / cluster SA 名稱
+
+3.kubectl annotate serviceaccount   --namespace default   default   iam.gke.io/gcp-service-account=gmp-sa@xxxlabid.iam.gserviceaccount.com
+```
+
+5. 授權給服務帳戶
+```text
+1gcloud projects add-iam-policy-binding xxxlabid   --member=serviceAccount:gmp-sa@xxxlabid.iam.gserviceaccount.com   --role=roles/monitoring.viewer   --condition=None 
+
+2. gcloud projects add-iam-policy-binding xxxlabid   --member=serviceAccount:gmp-sa@xxxlabid.iam.gserviceaccount.com   --role=roles/iam.serviceAccountTokenCreator   --condition=None
+
+```
 ## 操作順序（Deployment 與設定流程）
 
 > 建議實際套用順序：  
