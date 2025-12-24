@@ -28,9 +28,13 @@ README.md
 ```
 
 ---
-## 前置條件（Prerequisites） ⭐⭐⭐ 
-1.開始前記得一定要先將GKE Workload Identity 打開 (打開後node一定要upgrade 刪掉重建不行 )
-2.出現403 優先檢查 Workload Identity 以及Sa是否正確綁定置grafana pod 
+## 前置條件（Prerequisites）
+
+> 本節為 **必要設定**，若未完成，Grafana 將無法查詢 GMP 指標。
+
+1. 確認 GKE 啟用 Workload Identity
+2. 確認 GCP Service Account 已正確綁定 Kubernetes ServiceAccount
+3. 發生 403 時，請優先回到本節檢查
 
 ### 建立並綁定 GCP 服務帳戶（Workload Identity）
 1. gcloud CLI 設定叢集
