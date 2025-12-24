@@ -169,8 +169,8 @@ Ingress 功能包含：
 sum by (pod) (
   rate(container_cpu_usage_seconds_total[5m])
 )
-
 ```
+
 ## Grafana 與 Google Managed Prometheus（GMP）
 
 ### 資料來源說明
