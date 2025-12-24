@@ -162,7 +162,15 @@ Ingress 功能包含：
 ###  創建grafana與 google cloud monitoring
 1. 進到 grafana  左側 connections 選擇google cloud monitoring
 <img width="2559" height="1116" alt="image" src="https://github.com/user-attachments/assets/985c4aa8-bb77-4668-b082-3c81e5defb88" />
+<img width="2558" height="1147" alt="image" src="https://github.com/user-attachments/assets/676b9050-b07d-4997-be1c-8863cddd9db3" />
+<img width="2533" height="1167" alt="image" src="https://github.com/user-attachments/assets/a5b00f51-ca1f-43c0-8077-d5be609e3cd5" />
+可以使用
+```text
+sum by (pod) (
+  rate(container_cpu_usage_seconds_total[5m])
+)
 
+```
 ## Grafana 與 Google Managed Prometheus（GMP）
 
 ### 資料來源說明
