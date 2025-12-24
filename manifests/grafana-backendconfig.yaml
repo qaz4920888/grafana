@@ -1,0 +1,9 @@
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: grafana-backendconfig
+  namespace: default
+spec:
+  healthCheck:
+    port: 3000
+    requestPath: /api/health
