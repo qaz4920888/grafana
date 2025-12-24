@@ -40,14 +40,17 @@ README.md
 gcloud container clusters get-credentials CLUSTER_NAME --location LOCATION --project benlab-392406
 ```
 
-2. 建立GCP服務帳戶。 gmp-sa
+2. 建立GCP服務帳戶 gmp-sa
+
+```text
+1.gcloud iam service-accounts create gmp-sa
+```
 
 3.GCP sa 連結到 ns  Kubernetes 服務帳戶，將必要權限授予 Google Cloud 服務帳戶。
 
 ```text
 1.gcloud config set project xxxxx 
 
-2.gcloud iam service-accounts create gmp-sa
 ```
 
 4.使用下列指令，將 gmp-sa 連接至 ns 命名空間中的 Kubernetes 服務帳戶：
