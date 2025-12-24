@@ -17,6 +17,15 @@
 
 ## 專案結構
 
+```text
+manifests/
+├─ grafana-backendconfig.yaml
+├─ grafana-deployment.yaml
+├─ grafana-ingress.yaml
+├─ grafana-pvc.yaml
+├─ grafana-service.yaml
+README.md
+
 manifests/
 ├─ grafana-backendconfig.yaml
 ├─ grafana-deployment.yaml
