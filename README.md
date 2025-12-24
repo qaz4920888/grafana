@@ -36,7 +36,8 @@ README.md
 2. 確認 GCP Service Account 已正確綁定 Kubernetes ServiceAccount
 3. 發生 403 時，請優先回到本節檢查
 
-### 建立並綁定 GCP 服務帳戶（Workload Identity）
+### 建立並綁定 GCP 服務帳戶（Workload Identity） 
+參考文件:https://docs.cloud.google.com/stackdriver/docs/managed-prometheus/query?hl=zh-tw
 1. gcloud CLI 設定叢集
 
 ```text
