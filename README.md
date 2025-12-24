@@ -35,7 +35,7 @@ README.md
 1. 確認 GKE 啟用 Workload Identity
 2. 確認 GCP Service Account 已正確綁定 Kubernetes ServiceAccount
 3. 發生 403 時，請優先回到本節檢查
-
+4. 此篇章建立cluster sa 不同文件內使用Default sa
 ### 建立SA並綁定 GCP 服務帳戶（Workload Identity） 
 參考文件:https://docs.cloud.google.com/stackdriver/docs/managed-prometheus/query?hl=zh-tw
 1. gcloud CLI 設定叢集
@@ -45,10 +45,11 @@ README.md
 gcloud container clusters get-credentials CLUSTER_NAME --location LOCATION --project benlab-392406
 ```
 
-2. 建立GCP服務帳戶 gmp-sa
+2. 建立GCP服務帳戶 gmp-sa 以及cluster內sa
 
 ```text
 1.gcloud iam service-accounts create gmp-sa
+2. kubectl create sa gmp-sa
 ```
 
 3.GCP sa 連結到 ns  Kubernetes 服務帳戶，將必要權限授予 Google Cloud 服務帳戶。
