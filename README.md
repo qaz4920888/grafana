@@ -37,7 +37,9 @@ README.md
 3. 發生 403 時，請優先回到本節檢查
 4. 此篇章建立cluster sa 不同文件內使用Default sa
 ### 建立SA並綁定 GCP 服務帳戶（Workload Identity） 
-參考文件:https://docs.cloud.google.com/stackdriver/docs/managed-prometheus/query?hl=zh-tw
+參考文件:
+[1]https://docs.cloud.google.com/stackdriver/docs/managed-prometheus/query?hl=zh-tw
+[2]https://grafana.com/docs/grafana/latest/setup-grafana/installation/kubernetes/
 1. gcloud CLI 設定叢集
 
 ```text
