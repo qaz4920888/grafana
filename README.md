@@ -9,6 +9,13 @@
 - Grafana 資料來源為 Google Managed Prometheus（GMP）
 - 使用 PromQL 查詢 Pod CPU 使用量
 - 使用 Workload Identity 讓 Grafana 存取 GCP Monitoring API
+## 操作順序
+
+
+
+
+
+
 
 ## 目前完成項目
 
