@@ -19,11 +19,11 @@
 
 ```text
 manifests/
-├─ grafana-backendconfig.yaml
-├─ grafana-deployment.yaml
-├─ grafana-ingress.yaml
 ├─ grafana-pvc.yaml
+├─ grafana-deployment.yaml
 ├─ grafana-service.yaml
+├─ grafana-backendconfig.yaml
+├─ grafana-ingress.yaml
 README.md
 ```
 
