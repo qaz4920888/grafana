@@ -42,7 +42,7 @@ README.md
 
 ```text
 
-gcloud container clusters get-credentials CLUSTER_NAME --location LOCATION --project benlab-392406
+gcloud container clusters get-credentials CLUSTER_NAME --location LOCATION --project projectid
 ```
 
 2. 建立GCP服務帳戶 gmp-sa 以及cluster內sa
@@ -55,26 +55,26 @@ gcloud container clusters get-credentials CLUSTER_NAME --location LOCATION --pro
 3.GCP sa 連結到 ns  Kubernetes 服務帳戶，將必要權限授予 Google Cloud 服務帳戶。
 
 ```text
-1.gcloud config set project xxxxx 
+1.gcloud config set project projectid
 
 ```
 
 4.使用下列指令，將 gmp-sa 連接至 ns 命名空間中的 Kubernetes 服務帳戶：
 
 ```text
-1.gcloud config set project xxxlabid
+1.gcloud config set project projectid
 
-2. gcloud iam service-accounts add-iam-policy-binding   --role roles/iam.workloadIdentityUser   --condition=None   --member "serviceAccount:xxxlab-id.svc.id.goog[default/default]"  gmp-sa@xxxlabid.iam.gserviceaccount.com 
+2. gcloud iam service-accounts add-iam-policy-binding   --role roles/iam.workloadIdentityUser   --condition=None   --member "serviceAccount:projectid.svc.id.goog[default/default]"  gmp-sa@projectid.iam.gserviceaccount.com 
  #解說 [default/default] 左邊ns name / cluster SA 名稱
 
-3.kubectl annotate serviceaccount   --namespace default   default   iam.gke.io/gcp-service-account=gmp-sa@xxxlabid.iam.gserviceaccount.com
+3.kubectl annotate serviceaccount   --namespace default   default   iam.gke.io/gcp-service-account=gmp-sa@projectid.iam.gserviceaccount.com
 ```
 
 5. 授權給服務帳戶
 ```text
-1gcloud projects add-iam-policy-binding xxxlabid   --member=serviceAccount:gmp-sa@xxxlabid.iam.gserviceaccount.com   --role=roles/monitoring.viewer   --condition=None 
+1gcloud projects add-iam-policy-binding projectid  --member=serviceAccount:gmp-sa@xxxlabid.iam.gserviceaccount.com   --role=roles/monitoring.viewer   --condition=None 
 
-2. gcloud projects add-iam-policy-binding xxxlabid   --member=serviceAccount:gmp-sa@xxxlabid.iam.gserviceaccount.com   --role=roles/iam.serviceAccountTokenCreator   --condition=None
+2. gcloud projects add-iam-policy-binding projectid   --member=serviceAccount:gmp-sa@projectid.iam.gserviceaccount.com   --role=roles/iam.serviceAccountTokenCreator   --condition=None
 
 ```
 ## 操作順序（Deployment 與設定流程）
